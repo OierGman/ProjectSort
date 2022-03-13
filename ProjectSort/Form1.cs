@@ -52,7 +52,7 @@ namespace ProjectSort
                         temp = unsorted_list[sort + 1];
                         unsorted_list[sort + 1] = unsorted_list[sort];
                         unsorted_list[sort] = temp;
-                        // Thread.Sleep(250);
+                        // Thread.Sleep(500);
                     }
                     CreateBitmapAtRuntime();
                     pictureBox1.Update();
