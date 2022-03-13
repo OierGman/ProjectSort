@@ -25,13 +25,54 @@ namespace ProjectSort
             Bitmap graph = new Bitmap(1000, 1000);
             Graphics graphGraphics = Graphics.FromImage(graph);
             int y = 0;
-            int x = 300 / unsorted_list.Length;
+            int x = 900 / unsorted_list.Length;
             foreach (int i in unsorted_list) 
             {
                 graphGraphics.FillRectangle(Brushes.Red, y, 35, x, i * 5);
                 y += x + 2;
             }
             pictureBox1.Image = graph;
+        }
+
+        private void QuickSort(int[] arr, int start, int end)
+        {
+            int i;
+            if (start < end)
+            {
+                i = Partition(arr, start, end);
+                CreateBitmapAtRuntime();
+                pictureBox1.Update();
+
+                QuickSort(arr, start, i - 1);
+                Thread.Sleep(250);
+                pictureBox1.Update();
+                QuickSort(arr, i + 1, end);
+                Thread.Sleep(250);
+                pictureBox1.Update();
+            }
+        }
+
+        private int Partition(int[] arr, int start, int end)
+        {
+            int temp;
+            int p = arr[end];
+            int i = start - 1;
+
+            for (int j = start; j <= end - 1; j++)
+            {
+                if (arr[j] <= p)
+                {
+                    i++;
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+
+            temp = arr[i + 1];
+            arr[i + 1] = arr[end];
+            arr[end] = temp;
+            return i + 1;
         }
 
         public Form1()
@@ -41,22 +82,31 @@ namespace ProjectSort
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            int temp = 0;
-
-            for (int write = 0; write < unsorted_list.Length; write++)
+            if (checkBoxBubble.Checked == true)
             {
-                for (int sort = 0; sort < unsorted_list.Length - 1; sort++)
+                int temp = 0;
+
+                for (int write = 0; write < unsorted_list.Length; write++)
                 {
-                    if (unsorted_list[sort] > unsorted_list[sort + 1])
+                    for (int sort = 0; sort < unsorted_list.Length - 1; sort++)
                     {
-                        temp = unsorted_list[sort + 1];
-                        unsorted_list[sort + 1] = unsorted_list[sort];
-                        unsorted_list[sort] = temp;
-                        // Thread.Sleep(500);
+                        if (unsorted_list[sort] > unsorted_list[sort + 1])
+                        {
+                            temp = unsorted_list[sort + 1];
+                            unsorted_list[sort + 1] = unsorted_list[sort];
+                            unsorted_list[sort] = temp;
+                            // Thread.Sleep(500);
+                        }
+                        CreateBitmapAtRuntime();
+                        pictureBox1.Update();
                     }
-                    CreateBitmapAtRuntime();
-                    pictureBox1.Update();
                 }
+                MessageBox.Show("Sort Complete");
+            }
+            else if (checkBoxQuickSort.Checked == true)
+            {
+                QuickSort(unsorted_list, 0, unsorted_list.Length - 1);
+                MessageBox.Show("Sort Complete");
             }
         }
 
@@ -67,7 +117,14 @@ namespace ProjectSort
             if (pValue == true)
             {
                 p = tempIntP;
+            }   
+
+            if (p > 100)
+            {
+                MessageBox.Show("Max List Size 100");
+                p = 100;
             }
+
             int Min = 1;
             int Max = 70;
 
@@ -79,6 +136,22 @@ namespace ProjectSort
             }
             CreateBitmapAtRuntime();
             pictureBox1.Update();
+        }
+
+        private void checkBoxBubble_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxBubble.Checked == true)
+            {
+                checkBoxQuickSort.Checked = false;
+            }
+        }
+
+        private void checkBoxQuickSort_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxQuickSort.Checked == true)
+            {
+                checkBoxBubble.Checked = false;
+            }
         }
     }
 }

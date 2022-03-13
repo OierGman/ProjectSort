@@ -33,6 +33,8 @@ namespace ProjectSort
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxArrayLength = new System.Windows.Forms.TextBox();
             this.buttonAccept = new System.Windows.Forms.Button();
+            this.checkBoxBubble = new System.Windows.Forms.CheckBox();
+            this.checkBoxQuickSort = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonSort
@@ -40,7 +42,7 @@ namespace ProjectSort
             this.buttonSort.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonSort.Location = new System.Drawing.Point(0, 546);
             this.buttonSort.Name = "buttonSort";
-            this.buttonSort.Size = new System.Drawing.Size(1262, 61);
+            this.buttonSort.Size = new System.Drawing.Size(1388, 61);
             this.buttonSort.TabIndex = 0;
             this.buttonSort.Text = "Sort Graph";
             this.buttonSort.UseVisualStyleBackColor = true;
@@ -72,11 +74,35 @@ namespace ProjectSort
             this.buttonAccept.UseVisualStyleBackColor = true;
             this.buttonAccept.Click += new System.EventHandler(this.buttonAccept_Click);
             // 
+            // checkBoxBubble
+            // 
+            this.checkBoxBubble.AutoSize = true;
+            this.checkBoxBubble.Location = new System.Drawing.Point(550, 8);
+            this.checkBoxBubble.Name = "checkBoxBubble";
+            this.checkBoxBubble.Size = new System.Drawing.Size(104, 21);
+            this.checkBoxBubble.TabIndex = 5;
+            this.checkBoxBubble.Text = "Bubble Sort";
+            this.checkBoxBubble.UseVisualStyleBackColor = true;
+            this.checkBoxBubble.CheckedChanged += new System.EventHandler(this.checkBoxBubble_CheckedChanged);
+            // 
+            // checkBoxQuickSort
+            // 
+            this.checkBoxQuickSort.AutoSize = true;
+            this.checkBoxQuickSort.Location = new System.Drawing.Point(704, 8);
+            this.checkBoxQuickSort.Name = "checkBoxQuickSort";
+            this.checkBoxQuickSort.Size = new System.Drawing.Size(96, 21);
+            this.checkBoxQuickSort.TabIndex = 6;
+            this.checkBoxQuickSort.Text = "Quick Sort";
+            this.checkBoxQuickSort.UseVisualStyleBackColor = true;
+            this.checkBoxQuickSort.CheckedChanged += new System.EventHandler(this.checkBoxQuickSort_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 607);
+            this.ClientSize = new System.Drawing.Size(1388, 607);
+            this.Controls.Add(this.checkBoxQuickSort);
+            this.Controls.Add(this.checkBoxBubble);
             this.Controls.Add(this.buttonAccept);
             this.Controls.Add(this.textBoxArrayLength);
             this.Controls.Add(this.label1);
@@ -94,6 +120,8 @@ namespace ProjectSort
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxArrayLength;
         private System.Windows.Forms.Button buttonAccept;
+        private System.Windows.Forms.CheckBox checkBoxBubble;
+        private System.Windows.Forms.CheckBox checkBoxQuickSort;
     }
 }
 
