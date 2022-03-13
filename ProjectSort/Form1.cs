@@ -13,17 +13,6 @@ namespace ProjectSort
 {
     public partial class Form1 : Form
     {
-        /*
-        int Min = 0;
-        int Max = 20;
-
-        int[] test2 = new int[5];
-        Random randNum = new Random();
-        foreach (int value in test2)
-        {
-            randNum.Next(Min, Max);
-        }
-        */
         int p;
         int[] unsorted_list;
 
