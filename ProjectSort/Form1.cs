@@ -17,21 +17,25 @@ namespace ProjectSort
         int[] unsorted_list;
 
         PictureBox pictureBox1 = new PictureBox();
+
         public void CreateBitmapAtRuntime()
         {
-            pictureBox1.Size = new Size(1500, 1100);
+            pictureBox1.Size = new Size(1500, 1000);
             this.Controls.Add(pictureBox1);
 
             Bitmap graph = new Bitmap(1400, 1000);
             Graphics graphGraphics = Graphics.FromImage(graph);
 
-            int y = 0;
+            int y = 5;
             int x = 900 / unsorted_list.Length;
             foreach (int i in unsorted_list) 
             {
-                graphGraphics.FillRectangle(Brushes.Red, y, 35, x, i * 5);
+                graphGraphics.FillRectangle(Brushes.Red, y, 450, x, i * 5);
                 y += x + 2;
             }
+
+            pictureBox1.Image = graph;
+            graph.RotateFlip(RotateFlipType.RotateNoneFlipY);
             pictureBox1.Image = graph;
         }
 
@@ -110,6 +114,8 @@ namespace ProjectSort
             int[] L = new int[n1];
             int[] R = new int[n2];
             int i, j;
+
+            CreateBitmapAtRuntime();
 
             for (i = 0; i < n1; i++)
                 L[i] = arr[l + i];
