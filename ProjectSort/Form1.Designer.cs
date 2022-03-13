@@ -35,14 +35,15 @@ namespace ProjectSort
             this.buttonAccept = new System.Windows.Forms.Button();
             this.checkBoxBubble = new System.Windows.Forms.CheckBox();
             this.checkBoxQuickSort = new System.Windows.Forms.CheckBox();
+            this.checkBoxInsertion = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonSort
             // 
             this.buttonSort.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonSort.Location = new System.Drawing.Point(0, 546);
+            this.buttonSort.Location = new System.Drawing.Point(0, 712);
             this.buttonSort.Name = "buttonSort";
-            this.buttonSort.Size = new System.Drawing.Size(1388, 61);
+            this.buttonSort.Size = new System.Drawing.Size(1503, 61);
             this.buttonSort.TabIndex = 0;
             this.buttonSort.Text = "Sort Graph";
             this.buttonSort.UseVisualStyleBackColor = true;
@@ -96,11 +97,23 @@ namespace ProjectSort
             this.checkBoxQuickSort.UseVisualStyleBackColor = true;
             this.checkBoxQuickSort.CheckedChanged += new System.EventHandler(this.checkBoxQuickSort_CheckedChanged);
             // 
+            // checkBoxInsertion
+            // 
+            this.checkBoxInsertion.AutoSize = true;
+            this.checkBoxInsertion.Location = new System.Drawing.Point(843, 7);
+            this.checkBoxInsertion.Name = "checkBoxInsertion";
+            this.checkBoxInsertion.Size = new System.Drawing.Size(114, 21);
+            this.checkBoxInsertion.TabIndex = 7;
+            this.checkBoxInsertion.Text = "Insertion Sort";
+            this.checkBoxInsertion.UseVisualStyleBackColor = true;
+            this.checkBoxInsertion.CheckedChanged += new System.EventHandler(this.checkBoxInsertion_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1388, 607);
+            this.ClientSize = new System.Drawing.Size(1503, 773);
+            this.Controls.Add(this.checkBoxInsertion);
             this.Controls.Add(this.checkBoxQuickSort);
             this.Controls.Add(this.checkBoxBubble);
             this.Controls.Add(this.buttonAccept);
@@ -122,6 +135,7 @@ namespace ProjectSort
         private System.Windows.Forms.Button buttonAccept;
         private System.Windows.Forms.CheckBox checkBoxBubble;
         private System.Windows.Forms.CheckBox checkBoxQuickSort;
+        private System.Windows.Forms.CheckBox checkBoxInsertion;
     }
 }
 

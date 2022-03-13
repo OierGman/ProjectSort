@@ -19,11 +19,12 @@ namespace ProjectSort
         PictureBox pictureBox1 = new PictureBox();
         public void CreateBitmapAtRuntime()
         {
-            pictureBox1.Size = new Size(1000, 1000);
+            pictureBox1.Size = new Size(1500, 1100);
             this.Controls.Add(pictureBox1);
 
-            Bitmap graph = new Bitmap(1000, 1000);
+            Bitmap graph = new Bitmap(1400, 1000);
             Graphics graphGraphics = Graphics.FromImage(graph);
+
             int y = 0;
             int x = 900 / unsorted_list.Length;
             foreach (int i in unsorted_list) 
@@ -44,10 +45,10 @@ namespace ProjectSort
                 pictureBox1.Update();
 
                 QuickSort(arr, start, i - 1);
-                Thread.Sleep(100);
+                //Thread.Sleep(50);
                 pictureBox1.Update();
                 QuickSort(arr, i + 1, end);
-                Thread.Sleep(100);
+                //Thread.Sleep(50);
                 pictureBox1.Update();
             }
         }
@@ -69,13 +70,36 @@ namespace ProjectSort
                 }
                 CreateBitmapAtRuntime();
                 pictureBox1.Update();
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
             }
 
             temp = arr[i + 1];
             arr[i + 1] = arr[end];
             arr[end] = temp;
+            pictureBox1.Update();
             return i + 1;
+        }
+
+        private void insertion_sort(int[] arr)
+        {
+            int n = arr.Length;
+            
+
+            for (int i = 1; i < n; i++)
+            {
+                int key = arr[i];
+                int j = i - 1;
+
+                while (j >= 0 && arr[j] > key)
+                {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                    CreateBitmapAtRuntime();
+                    pictureBox1.Update();
+                }
+                arr[j + 1] = key;
+                pictureBox1.Update();
+            }
         }
 
         public Form1()
@@ -106,9 +130,16 @@ namespace ProjectSort
                 }
                 MessageBox.Show("Sort Complete");
             }
+
             else if (checkBoxQuickSort.Checked == true)
             {
                 QuickSort(unsorted_list, 0, unsorted_list.Length - 1);
+                MessageBox.Show("Sort Complete");
+            }
+
+            else if (checkBoxInsertion.Checked == true)
+            {
+                insertion_sort(unsorted_list);
                 MessageBox.Show("Sort Complete");
             }
         }
@@ -129,7 +160,7 @@ namespace ProjectSort
             }
 
             int Min = 1;
-            int Max = 70;
+            int Max = 100;
 
             unsorted_list = new int[p];
             Random randNum = new Random();
@@ -146,6 +177,7 @@ namespace ProjectSort
             if (checkBoxBubble.Checked == true)
             {
                 checkBoxQuickSort.Checked = false;
+                checkBoxInsertion.Checked = false;
             }
         }
 
@@ -154,6 +186,16 @@ namespace ProjectSort
             if (checkBoxQuickSort.Checked == true)
             {
                 checkBoxBubble.Checked = false;
+                checkBoxInsertion.Checked = false;
+            }
+        }
+
+        private void checkBoxInsertion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxInsertion.Checked == true)
+            {
+                checkBoxBubble.Checked = false;
+                checkBoxQuickSort.Checked = false;
             }
         }
     }
