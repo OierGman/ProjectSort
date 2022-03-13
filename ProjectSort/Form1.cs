@@ -39,15 +39,15 @@ namespace ProjectSort
             int i;
             if (start < end)
             {
-                i = Partition(arr, start, end);
                 CreateBitmapAtRuntime();
+                i = Partition(arr, start, end);
                 pictureBox1.Update();
 
                 QuickSort(arr, start, i - 1);
-                Thread.Sleep(250);
+                Thread.Sleep(100);
                 pictureBox1.Update();
                 QuickSort(arr, i + 1, end);
-                Thread.Sleep(250);
+                Thread.Sleep(100);
                 pictureBox1.Update();
             }
         }
@@ -67,6 +67,8 @@ namespace ProjectSort
                     arr[i] = arr[j];
                     arr[j] = temp;
                 }
+                CreateBitmapAtRuntime();
+                pictureBox1.Update();
             }
 
             temp = arr[i + 1];
