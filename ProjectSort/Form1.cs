@@ -69,6 +69,7 @@ namespace ProjectSort
                 }
                 CreateBitmapAtRuntime();
                 pictureBox1.Update();
+                Thread.Sleep(50);
             }
 
             temp = arr[i + 1];
