@@ -36,6 +36,7 @@ namespace ProjectSort
             this.checkBoxBubble = new System.Windows.Forms.CheckBox();
             this.checkBoxQuickSort = new System.Windows.Forms.CheckBox();
             this.checkBoxInsertion = new System.Windows.Forms.CheckBox();
+            this.checkBoxMerge = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonSort
@@ -100,7 +101,7 @@ namespace ProjectSort
             // checkBoxInsertion
             // 
             this.checkBoxInsertion.AutoSize = true;
-            this.checkBoxInsertion.Location = new System.Drawing.Point(843, 7);
+            this.checkBoxInsertion.Location = new System.Drawing.Point(849, 7);
             this.checkBoxInsertion.Name = "checkBoxInsertion";
             this.checkBoxInsertion.Size = new System.Drawing.Size(114, 21);
             this.checkBoxInsertion.TabIndex = 7;
@@ -108,11 +109,23 @@ namespace ProjectSort
             this.checkBoxInsertion.UseVisualStyleBackColor = true;
             this.checkBoxInsertion.CheckedChanged += new System.EventHandler(this.checkBoxInsertion_CheckedChanged);
             // 
+            // checkBoxMerge
+            // 
+            this.checkBoxMerge.AutoSize = true;
+            this.checkBoxMerge.Location = new System.Drawing.Point(1006, 7);
+            this.checkBoxMerge.Name = "checkBoxMerge";
+            this.checkBoxMerge.Size = new System.Drawing.Size(100, 21);
+            this.checkBoxMerge.TabIndex = 8;
+            this.checkBoxMerge.Text = "Merge Sort";
+            this.checkBoxMerge.UseVisualStyleBackColor = true;
+            this.checkBoxMerge.CheckedChanged += new System.EventHandler(this.checkBoxMerge_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 773);
+            this.Controls.Add(this.checkBoxMerge);
             this.Controls.Add(this.checkBoxInsertion);
             this.Controls.Add(this.checkBoxQuickSort);
             this.Controls.Add(this.checkBoxBubble);
@@ -136,6 +149,7 @@ namespace ProjectSort
         private System.Windows.Forms.CheckBox checkBoxBubble;
         private System.Windows.Forms.CheckBox checkBoxQuickSort;
         private System.Windows.Forms.CheckBox checkBoxInsertion;
+        private System.Windows.Forms.CheckBox checkBoxMerge;
     }
 }
 

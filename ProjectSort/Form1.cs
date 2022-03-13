@@ -102,6 +102,77 @@ namespace ProjectSort
             }
         }
 
+        void merge(int[] arr, int l, int m, int r)
+        {
+            int n1 = m - l + 1;
+            int n2 = r - m;
+
+            int[] L = new int[n1];
+            int[] R = new int[n2];
+            int i, j;
+
+            for (i = 0; i < n1; i++)
+                L[i] = arr[l + i];
+            for (j = 0; j < n2; j++)
+                R[j] = arr[m + 1 + j];
+
+            i = 0;
+            j = 0;
+
+            int k = l;
+            while (i < n1 && j < n2)
+            {
+                if (L[i] <= R[j])
+                {
+                    arr[k] = L[i];
+                    i++;
+                    pictureBox1.Update();
+                }
+                else
+                {
+                    arr[k] = R[j];
+                    j++;
+                    pictureBox1.Update();
+                }
+                k++;
+                pictureBox1.Update();
+            }
+
+            while (i < n1)
+            {
+                arr[k] = L[i];
+                i++;
+                k++;
+                pictureBox1.Update();
+            }
+
+            while (j < n2)
+            {
+                arr[k] = R[j];
+                j++;
+                k++;
+                pictureBox1.Update();
+            }
+            pictureBox1.Update();
+        }
+
+        void merge_sort(int[] arr, int l, int r)
+        {
+            if (l < r)
+            {
+                int m = l + (r - l) / 2;
+                merge_sort(arr, l, m);
+                CreateBitmapAtRuntime();
+                pictureBox1.Update();
+                merge_sort(arr, m + 1, r);
+                pictureBox1.Update();
+
+                merge(arr, l, m, r);
+                pictureBox1.Update();
+            }
+            
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -140,6 +211,12 @@ namespace ProjectSort
             else if (checkBoxInsertion.Checked == true)
             {
                 insertion_sort(unsorted_list);
+                MessageBox.Show("Sort Complete");
+            }
+
+            else if (checkBoxMerge.Checked == true)
+            {
+                merge_sort(unsorted_list, 0, unsorted_list.Length - 1);
                 MessageBox.Show("Sort Complete");
             }
         }
@@ -187,6 +264,7 @@ namespace ProjectSort
             {
                 checkBoxBubble.Checked = false;
                 checkBoxInsertion.Checked = false;
+                checkBoxMerge.Checked = false;
             }
         }
 
@@ -196,6 +274,17 @@ namespace ProjectSort
             {
                 checkBoxBubble.Checked = false;
                 checkBoxQuickSort.Checked = false;
+                checkBoxMerge.Checked = false;
+            }
+        }
+
+        private void checkBoxMerge_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMerge.Checked == true)
+            {
+                checkBoxBubble.Checked = false;
+                checkBoxQuickSort.Checked = false;
+                checkBoxInsertion.Checked = false;
             }
         }
     }
