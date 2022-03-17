@@ -13,6 +13,7 @@ namespace ProjectSort
 {
     public partial class Form1 : Form
     {
+        //test ing github
         int p;
         int[] unsorted_list;
 
@@ -292,6 +293,16 @@ namespace ProjectSort
                 checkBoxQuickSort.Checked = false;
                 checkBoxInsertion.Checked = false;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxArrayLength_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
