@@ -123,6 +123,7 @@ namespace ProjectSort
             for (j = 0; j < n2; j++)
                 R[j] = arr[m + 1 + j];
 
+            pictureBox1.Update();
             i = 0;
             j = 0;
 
@@ -152,6 +153,7 @@ namespace ProjectSort
                 k++;
                 pictureBox1.Update();
             }
+            pictureBox1.Update();
 
             while (j < n2)
             {
@@ -167,9 +169,9 @@ namespace ProjectSort
         {
             if (l < r)
             {
+                CreateBitmapAtRuntime();
                 int m = l + (r - l) / 2;
                 merge_sort(arr, l, m);
-                CreateBitmapAtRuntime();
                 pictureBox1.Update();
                 merge_sort(arr, m + 1, r);
                 pictureBox1.Update();
@@ -177,7 +179,7 @@ namespace ProjectSort
                 merge(arr, l, m, r);
                 pictureBox1.Update();
             }
-            
+            pictureBox1.Update();
         }
 
         public Form1()
@@ -223,6 +225,7 @@ namespace ProjectSort
 
             else if (checkBoxMerge.Checked == true)
             {
+                merge_sort(unsorted_list, 0, unsorted_list.Length - 1);
                 merge_sort(unsorted_list, 0, unsorted_list.Length - 1);
                 MessageBox.Show("Sort Complete");
             }
