@@ -119,11 +119,15 @@ namespace ProjectSort
             CreateBitmapAtRuntime();
 
             for (i = 0; i < n1; i++)
+            {
                 L[i] = arr[l + i];
+                pictureBox1.Update();
+            }
             for (j = 0; j < n2; j++)
+            {
                 R[j] = arr[m + 1 + j];
-
-            pictureBox1.Update();
+                pictureBox1.Update();
+            }
             i = 0;
             j = 0;
 
@@ -172,14 +176,15 @@ namespace ProjectSort
                 CreateBitmapAtRuntime();
                 int m = l + (r - l) / 2;
                 merge_sort(arr, l, m);
-                pictureBox1.Update();
+                //pictureBox1.Update();
                 merge_sort(arr, m + 1, r);
-                pictureBox1.Update();
+                //pictureBox1.Update();
 
                 merge(arr, l, m, r);
-                pictureBox1.Update();
+                merge(arr, l, m, r);
+                //pictureBox1.Update();
             }
-            pictureBox1.Update();
+            //pictureBox1.Update();
         }
 
         public Form1()
@@ -225,7 +230,6 @@ namespace ProjectSort
 
             else if (checkBoxMerge.Checked == true)
             {
-                merge_sort(unsorted_list, 0, unsorted_list.Length - 1);
                 merge_sort(unsorted_list, 0, unsorted_list.Length - 1);
                 MessageBox.Show("Sort Complete");
             }
